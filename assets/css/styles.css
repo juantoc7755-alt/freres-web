@@ -278,10 +278,10 @@ strong { font-weight: 600; }
 .stars { color: var(--sol); letter-spacing: .1em; font-size: 15px; }
 .facts__note { display: block; margin-top: 4px; font-size: 11.5px; line-height: 1.35; color: var(--gris); max-width: 24em; }
 
-/* ---------- La cita: regla de 50 minutos ---------- */
-.ruler { --pelo: 50%; } /* 30 de 60 min */
+/* ---------- La cita: regla de 45 minutos ---------- */
+.ruler { --total: 45; --pelo: calc(30 / var(--total) * 100%); }
 .ruler__scale { position: relative; height: 22px; font-family: var(--f-mono); font-size: 12px; color: var(--gris); }
-.ruler__scale span { position: absolute; left: calc(var(--m) / 60 * 100%); transform: translateX(-50%); white-space: nowrap; }
+.ruler__scale span { position: absolute; left: calc(var(--m) / var(--total) * 100%); transform: translateX(-50%); white-space: nowrap; }
 .ruler__scale span:first-child { transform: none; }
 .ruler__scale span:last-child { transform: translateX(-100%); }
 
@@ -289,7 +289,7 @@ strong { font-weight: 600; }
   position: relative; display: flex; height: 64px; margin-top: 8px;
   border-radius: 10px; overflow: hidden;
   background:
-    repeating-linear-gradient(90deg, var(--linea) 0 1px, transparent 1px calc(100% / 10)) ,
+    repeating-linear-gradient(90deg, var(--linea) 0 1px, transparent 1px calc(100% / 9)) ,
     var(--papel);
   box-shadow: inset 0 0 0 1px var(--linea);
 }
@@ -574,7 +574,7 @@ strong { font-weight: 600; }
   .js .ruler__seg { transform: scaleY(0); }
   .ruler.is-in .ruler__seg--pelo, .ruler.is-in .ruler__seg--masaje { transform: scaleY(1); }
   .ruler__seg--pelo { flex: 30; }
-  .ruler__seg--masaje { flex: 30; }
+  .ruler__seg--masaje { flex: 15; }
   .ruler__label { writing-mode: vertical-rl; transform: rotate(180deg); margin: auto; font-size: 12px; }
   .steps { grid-row: 1; grid-column: 2; grid-template-columns: 1fr; margin-top: 0; }
   .step, .step + .step { padding: 0 0 28px; border-left: 0; }
